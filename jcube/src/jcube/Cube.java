@@ -12,7 +12,7 @@ public class Cube {
 	
 	public static Cube fromTextFile(String filepath) throws IOException {
 		TextFile tFile= new TextFile(filepath);
-		return tFile.createCube();
+		return tFile.createCubeFromFile();
 	}
 	
 	public Cube addFace(String string) {

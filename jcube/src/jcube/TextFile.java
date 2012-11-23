@@ -13,7 +13,7 @@ public class TextFile {
 		this.path=filepath;
 	}
 
-	public Cube createCube() throws IOException {
+	public Cube createCubeFromFile() throws IOException {
 		Cube cube = new Cube();
 		cube.addFace(getContent());
 		return cube;
