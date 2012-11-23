@@ -1,8 +1,5 @@
 package jcube;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,23 +9,16 @@ import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 public class Cube {
-	private String faceOne;
+	private Face faceOne;
+	
 
 	public static Cube fromTextFile(String filepath) throws IOException {
-		Cube cube = new Cube();
-		return cube.loadFromFile(filepath);
+		TextFile tFile= new TextFile(filepath);
+		return tFile.createCube();
 	}
-
-	private Cube loadFromFile(String filePath) throws IOException {
-		BufferedReader reader = new BufferedReader(new FileReader(new File(filePath)));
-		this.addFace(reader.readLine().substring(2));
-		reader.close();
-		return this;
-	}
-
 
 	public Cube addFace(String string) {
-		this.faceOne = string;
+		this.faceOne = new Face(string);
 		return this;
 	}
 	
@@ -40,7 +30,7 @@ public class Cube {
 	public XMLDocument toSVG(String string) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 		XMLDocument doc = (new XMLDocument()).loadXMLFile(string);
 		Element blocNode = doc.getFirstNodeFromXPath("//tspan[contains(text(), \"$BLOCK1\")]");
-		blocNode.setTextContent(this.faceOne);
+		blocNode.setTextContent(this.faceOne.getTitre());
 		return doc;
 	}
 
