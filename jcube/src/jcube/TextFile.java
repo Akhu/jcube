@@ -15,29 +15,17 @@ public class TextFile {
 		this.path=filepath;
 	}
 	
-	public Cube createCubeFromMultipleLinesFile() throws IOException {
+	public Cube createCubeFromFile() throws IOException {
 		Cube cube = new Cube();
-		this.getMultipleContent();
+		this.getContent();
 		for(String titre : this.lines){
-			cube.addMultipleFaces(titre);
+			cube.addFace(titre);
 		}
 		return cube;
 	}
+
 	
-	public Cube createCubeFromFile() throws IOException {
-		Cube cube = new Cube();
-		cube.addFace(getContent());
-		return cube;
-	}
-	
-	public String getContent() throws IOException{
-		BufferedReader reader = new BufferedReader(new FileReader(new File(this.path)));
-		String line = reader.readLine().substring(2);
-		reader.close();
-		return line;
-	}
-	
-	public void getMultipleContent() throws IOException {
+	public void getContent() throws IOException {
 		
 		BufferedReader reader = new BufferedReader(new FileReader(new File(this.path)));
 		String line;

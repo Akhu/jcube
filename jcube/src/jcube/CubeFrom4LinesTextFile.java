@@ -11,17 +11,17 @@ public class CubeFrom4LinesTextFile {
 	@Test
 	public void fourLinesInTextFileMeans4Faces() throws IOException {
 		Cube cube4face = (new Cube())
-				.addMultipleFaces("Copier")
-				.addMultipleFaces("Coller")
-				.addMultipleFaces("Manger")
-				.addMultipleFaces("Couper");
-		assertEquals(cube4face.getNombreDeFace(),Cube.fromMultipleLinesTextFile("templates/four-line-cube.txt").getNombreDeFace());
+				.addFace("Copier")
+				.addFace("Coller")
+				.addFace("Manger")
+				.addFace("Couper");
+		assertEquals(cube4face.getNombreDeFace(),Cube.fromTextFile("templates/four-line-cube.txt").getNombreDeFace());
 	}
 	
 	@Test
 	public void twoCubeWithTwoEqualFacesAreEquals(){
-		Cube cube2faces = (new Cube()).addMultipleFaces("Hey").addMultipleFaces("Ho");
-		Cube cube2faces2 = (new Cube()).addMultipleFaces("Hey").addMultipleFaces("Ho");
+		Cube cube2faces = (new Cube()).addFace("Hey").addFace("Ho");
+		Cube cube2faces2 = (new Cube()).addFace("Hey").addFace("Ho");
 		
 		assertEquals(cube2faces,cube2faces2);
 	}

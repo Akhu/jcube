@@ -9,7 +9,7 @@ import javax.xml.xpath.XPathExpressionException;
 import org.xml.sax.SAXException;
 
 public class Cube {
-	private Face faceOne;
+	//private Face faceOne;
 	private ArrayList<Face> faces = new ArrayList<Face>();
 	
 	public Integer getNombreDeFace(){
@@ -22,19 +22,14 @@ public class Cube {
 	public void setFaces(ArrayList<Face> faces) {
 		this.faces = faces;
 	}
-
-	public static Cube fromTextFile(String filepath) throws IOException {
+	
+	public static Cube fromTextFile(String filepath) throws IOException{
 		TextFile tFile= new TextFile(filepath);
 		return tFile.createCubeFromFile();
 	}
 	
-	public static Cube fromMultipleLinesTextFile(String filepath) throws IOException{
-		TextFile tFile= new TextFile(filepath);
-		return tFile.createCubeFromMultipleLinesFile();
-	}
-	
 	public Cube addFace(String string) {
-		this.addMultipleFaces(string);
+		faces.add((new Face(string)));
 		return this;
 	}
 	
@@ -46,11 +41,6 @@ public class Cube {
 	public XMLDocument toSVG(String filePath) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 		// Remplacer par la liste des faces plus tard
 		return SVGFile.replaceTitleInSVG(filePath, this.faces.get(0).getTitre());
-	}
-
-	public Cube addMultipleFaces(String titreFace) {	
-		faces.add((new Face(titreFace)));
-		return this;
 	}
 
 }
