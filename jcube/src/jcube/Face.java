@@ -13,8 +13,8 @@ public class Face {
 		return titre;
 	}
 	
-	public boolean equals(Face face2){
-		return this.titre.equals(face2.titre);
+	public boolean equals(Object face2){
+		return this.titre.equals(((Face)face2).titre);
 	}
 	
 }
