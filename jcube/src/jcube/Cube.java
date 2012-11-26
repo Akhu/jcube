@@ -34,22 +34,18 @@ public class Cube {
 	}
 	
 	public Cube addFace(String string) {
-		this.faceOne = new Face(string);
+		this.addMultipleFaces(string);
 		return this;
 	}
 	
 	public boolean equals(Object other) {
 		Cube otherCube = (Cube)other;
-		if(this.faceOne.equals(otherCube.faceOne) || this.faces.equals(otherCube.getFaces())){
-			return true;
-		}else{
-			return false;
-		}
+		return this.faces.equals(otherCube.faces);
 	}
 
 	public XMLDocument toSVG(String filePath) throws SAXException, IOException, ParserConfigurationException, XPathExpressionException {
 		// Remplacer par la liste des faces plus tard
-		return SVGFile.replaceTitleInSVG(filePath, this.faceOne.getTitre());
+		return SVGFile.replaceTitleInSVG(filePath, this.faces.get(0).getTitre());
 	}
 
 	public Cube addMultipleFaces(String titreFace) {	
