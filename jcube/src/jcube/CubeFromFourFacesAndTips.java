@@ -1,11 +1,28 @@
 package jcube;
 
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+
 import org.junit.Test;
 
 public class CubeFromFourFacesAndTips {
-
-	@Test
-	public void twoStarsAtTheBeginningOfTheLineMeansCheat(){
+	
+	
+	public void twoStarsInFileShouldBeEqualToACubeWithCheats() throws IOException{
+		Cube cubeWithCheats = new Cube();
+		cubeWithCheats.newFace("Copier").addCheat("Ctrl+C");
+		cubeWithCheats.newFace("Coller").addCheat("Ctrl+V");
+		cubeWithCheats.newFace("Manger").addCheat("Ouvrir la bouche");
+		cubeWithCheats.newFace("Digerer").addCheat("Gerer! Dit-il");
 		
+		Cube thisCube = Cube.fromTextFile("templates/four-face-tips.txt");
+		assertEquals(cubeWithCheats,thisCube);
+	}
+	
+	@Test
+	public void twoCubesWithOneFaceAndTwoDifferentCheatsShouldNotBeEqual(){
+		//Cube cube1 = (new Cube()).newFace();
+		//assertFalse(cube1.equals(cube2));
 	}
 }

@@ -25,5 +25,7 @@ public class CubeFrom4LinesTextFile {
 		
 		assertEquals(cube2faces,cube2faces2);
 	}
+	
+	
 
 }

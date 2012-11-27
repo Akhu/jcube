@@ -42,5 +42,11 @@ public class Cube {
 		// Remplacer par la liste des faces plus tard
 		return SVGFile.replaceTitleInSVG(filePath, this.faces.get(0).getTitre());
 	}
+	
+	public Face newFace(String title) {
+		Face thisFace = new Face(title);
+		faces.add(thisFace);
+		return faces.get(faces.indexOf(thisFace));
+	}
 
 }
