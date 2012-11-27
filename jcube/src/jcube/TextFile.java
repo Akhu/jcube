@@ -29,7 +29,7 @@ public class TextFile {
 		
 		BufferedReader reader = new BufferedReader(new FileReader(new File(this.path)));
 		String line;
-		while ((line = reader.readLine()) != null) 
+		while ((line = reader.readLine()) != null)
 			lines.add(line.substring(2));
 		reader.close();
 	}

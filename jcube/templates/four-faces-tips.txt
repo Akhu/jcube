@@ -1,0 +1,8 @@
+* Copier
+** Ctrl+C
+* Coller
+** Ctrl+V
+* Manger
+** Ouvrir la bouche
+* Digerer
+** Gerer! Dit-il
