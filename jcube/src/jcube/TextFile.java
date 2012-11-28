@@ -2,7 +2,6 @@ package jcube;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,11 +19,15 @@ public class TextFile {
 	
 	public Cube createCubeFromFile() throws IOException {
 		Cube cube = new Cube();
+		this.createFacesAndCheats(cube);
+		return cube;
+		
+		/*Cube cube = new Cube();
 		this.getContent();
 		for(String titre : this.lines){
 			cube.addFace(titre);
 		}
-		return cube;
+		return cube;*/
 	}
 
 	public Cube createFacesAndCheats (Cube aCube) throws IOException{
@@ -32,17 +35,21 @@ public class TextFile {
 		String line;
 	
 		Face currentFace = new Face();
-		while ((line = reader.readLine()) != null){			
+		while ((line = reader.readLine()) != null){		
 			if(line.startsWith("* ")){				
+				currentFace = new Face();
+				aCube.getFaces().add(currentFace);
 				currentFace.setTitre(line.substring(2));
-				
 			}			
-				if(line.startsWith("** ")){
+			if(line.startsWith("** ")){
 				currentFace.addCheat(line.substring(3));
-				}
+			}
+			if(line.startsWith("*** ")){
+				currentFace.getCheats().get((currentFace.getCheats().size())-1).setDescription(line.substring(4));
+			}
 		}
 		reader.close();
-		aCube.getFaces().add(currentFace);
+		
 		return aCube; // Ajout d'une face au CUBE
 	}
 

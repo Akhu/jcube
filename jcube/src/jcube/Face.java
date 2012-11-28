@@ -8,6 +8,14 @@ public class Face {
 	//private String description;
 	private ArrayList<Cheat> cheats = new ArrayList<Cheat>();
 	
+	public ArrayList<Cheat> getCheats() {
+		return cheats;
+	}
+
+	public void setCheats(ArrayList<Cheat> cheats) {
+		this.cheats = cheats;
+	}
+
 	public Face(String string) {
 		this.titre=string;
 	}
@@ -32,6 +40,11 @@ public class Face {
 	public void setTitre(String titre) {
 		this.titre = titre;
 		
+	}
+
+	public Face addCheat(String title, String description) {
+		cheats.add(new Cheat(title,description));
+		return this;
 	}
 	
 }

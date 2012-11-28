@@ -1,2 +1,3 @@
 * Copier
 ** Ctrl+C
+*** Copier dans le presse PAPIER
