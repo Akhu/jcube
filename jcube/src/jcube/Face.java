@@ -21,7 +21,7 @@ public class Face {
 	}
 	
 	public boolean equals(Object face2){
-		return this.titre.equals(((Face)face2).titre);
+		return this.titre.equals(((Face)face2).titre) && this.cheats.equals(((Face)face2).cheats);
 	}
 
 	public Face addCheat(String cheatTitle) {

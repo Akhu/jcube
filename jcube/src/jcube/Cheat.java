@@ -9,5 +9,10 @@ public class Cheat {
 		this.title = cheatTitle;
 	}
 	
+	public boolean equals(Object cheat2){
+		
+		return this.title.equals(((Cheat)cheat2).title);
+	}
+	
 
 } 

@@ -27,24 +27,23 @@ public class TextFile {
 		return cube;
 	}
 
-	public Face createFacesAndCheats (Cube aCube) throws IOException{
+	public Cube createFacesAndCheats (Cube aCube) throws IOException{
 		BufferedReader reader = new BufferedReader(new FileReader(new File(this.path)));
 		String line;
 	
 		Face currentFace = new Face();
 		while ((line = reader.readLine()) != null){			
-			if(line.startsWith("* ")){
-				
+			if(line.startsWith("* ")){				
 				currentFace.setTitre(line.substring(2));
 				
-			}
-				
+			}			
 				if(line.startsWith("** ")){
 				currentFace.addCheat(line.substring(3));
 				}
 		}
 		reader.close();
-		return currentFace; // Ajout d'une face au CUBE
+		aCube.getFaces().add(currentFace);
+		return aCube; // Ajout d'une face au CUBE
 	}
 
 	public void getContent() throws IOException {
@@ -56,6 +55,12 @@ public class TextFile {
 			lines.add(line.substring(2));
 		}
 		reader.close();
+	}
+
+	public Cube createCubeFromOneFaceFile() throws IOException {
+		Cube cube = new Cube();
+		this.createFacesAndCheats(cube);
+		return cube;
 	}
 	
 }

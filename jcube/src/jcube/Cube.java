@@ -28,6 +28,11 @@ public class Cube {
 		return tFile.createCubeFromFile();
 	}
 	
+	public static Cube fromOneFaceTextFile(String filepath) throws IOException {
+		TextFile tfile = new TextFile(filepath);
+		return tfile.createCubeFromOneFaceFile();
+	}
+	
 	public Cube addFace(String string) {
 		faces.add((new Face(string)));
 		return this;
