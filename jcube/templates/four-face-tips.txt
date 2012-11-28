@@ -1,8 +1,12 @@
 * Copier
 ** Ctrl+C
+*** DescCopie
 * Coller
 ** Ctrl+V
+*** DescColler
 * Manger
 ** Ouvrir la bouche
+*** DescManger
 * Digerer
 ** Gerer! Dit-il
+*** DescDigerer

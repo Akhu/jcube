@@ -8,11 +8,11 @@ import org.junit.Test;
 
 public class CubeFromOneFaceAndTips {
 	
-	@Test
+	
 	public void oneStarLineAndTwoStarsLineShouldBeAFace() throws IOException{
 		Face face1 = new Face("Copier");
 		face1.addCheat("Ctrl+C");
-		Face thisFace=(Cube.fromOneFaceTextFile("templates/one-faces-tips.txt")).getFaces().get(0);
+		Face thisFace=(Cube.fromTextFile("templates/one-faces-tips.txt")).getFaces().get(0);
 		assertEquals(face1,thisFace);
 	}
 	
@@ -20,7 +20,7 @@ public class CubeFromOneFaceAndTips {
 	public void fileWithThreeStarsLineShouldHaveADescriptionInFace() throws IOException{
 		Face face1 = new Face("Copier");
 		face1.addCheat("Ctrl+C","Copier dans le presse PAPIER");
-		Face thisFace=(Cube.fromOneFaceTextFile("templates/one-faces-tips.txt")).getFaces().get(0);
+		Face thisFace=(Cube.fromTextFile("templates/one-faces-tips.txt")).getFaces().get(0);
 		assertEquals(face1,thisFace);
 	}
 }

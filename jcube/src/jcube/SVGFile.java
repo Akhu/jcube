@@ -16,6 +16,4 @@ public class SVGFile {
 		blocNode.setTextContent(titre);
 		return doc;
 	}
-
-
 }

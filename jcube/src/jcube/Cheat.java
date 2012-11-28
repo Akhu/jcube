@@ -3,7 +3,7 @@ package jcube;
 public class Cheat {
 
 	private String title;
-	private String description;
+	private String description = "";
 
 	public Cheat(String cheatTitle) {
 		this.title = cheatTitle;
@@ -16,9 +16,12 @@ public class Cheat {
 
 	public boolean equals(Object cheat2){
 		
-		return this.title.equals(((Cheat)cheat2).title);
+		return this.title.equals(((Cheat)cheat2).title) && this.description.equals(((Cheat)cheat2).description);
 	}
 
+	public String toString(){
+		return this.title + " - "+ this.description;
+	}
 	public String getDescription() {
 		return description;
 	}

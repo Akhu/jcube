@@ -23,15 +23,11 @@ public class Cube {
 		this.faces = faces;
 	}
 	
-	public static Cube fromTextFile(String filepath) throws IOException{
-		TextFile tFile= new TextFile(filepath);
-		return tFile.createCubeFromFile();
+	public static Cube fromTextFile(String filepath) throws IOException {
+		TextFile tfile = new TextFile(filepath);
+		return tfile.createCubeFromFile();
 	}
 	
-	public static Cube fromOneFaceTextFile(String filepath) throws IOException {
-		TextFile tfile = new TextFile(filepath);
-		return tfile.createCubeFromOneFaceFile();
-	}
 	
 	public Cube addFace(String string) {
 		faces.add((new Face(string)));

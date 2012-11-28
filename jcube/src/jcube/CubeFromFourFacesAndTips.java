@@ -21,8 +21,15 @@ public class CubeFromFourFacesAndTips {
 	}
 	
 	@Test
-	public void twoCubesWithOneFaceAndTwoDifferentCheatsShouldNotBeEqual(){
-		//Cube cube1 = (new Cube()).newFace();
-		//assertFalse(cube1.equals(cube2));
+	public void cubeShouldHaveFourFacesWithCheatsAndDescription() throws IOException{
+		Cube cubeWithCheats = new Cube();
+		cubeWithCheats.newFace("Copier").addCheat("Ctrl+C","DescCopie");
+		
+		cubeWithCheats.newFace("Coller").addCheat("Ctrl+V","DescColler");
+		cubeWithCheats.newFace("Manger").addCheat("Ouvrir la bouche","DescManger");
+		cubeWithCheats.newFace("Digerer").addCheat("Gerer! Dit-il","DescDigerer");
+		
+		Cube thisCube = Cube.fromTextFile("templates/four-face-tips.txt");
+		assertEquals(cubeWithCheats,thisCube);		
 	}
 }
